@@ -1,7 +1,16 @@
 <?php
 $is_auth = rand(0, 1);
-
-$user_name = ''; // укажите здесь ваше имя
+$user_name = ' Саня)'; // укажите здесь ваше имя
+$category_ru = array('Доски и лыжи', 'Крепления', 'Ботинки','Одежда','Инструменты','Разное');
+$category_eng = array('Boards and skis', 'Attachment', 'Boots', 'Clothes', 'Tools', 'Others');
+$adv_info = [
+            ["Name" => "2014 Rossignol District Snowboard", "Category" => $category_ru[0], "Price" => 10999, "URl" =>"img/lot-1.jpg"],
+            ["Name" => "DC Ply Mens 2016/2017 Snowboard", "Category" => $category_ru[0], "Price" => 159999, "URl" =>"img/lot-2.jpg"],
+            ["Name" => "Крепления Union Contact Pro 2015 года размер L/XLQ", "Category" => $category_ru[1], "Price" => 8000, "URl" =>"img/lot-3.jpg"],
+            ["Name" => "Ботинки для сноуборда DC Mutiny Charocal", "Category" => $category_ru[2], "Price" => 10999, "URl" =>"img/lot-4.jpg"],
+            ["Name" => "Куртка для сноуборда DC Mutiny Charocal", "Category" => $category_ru[3], "Price" => 7500, "URl" =>"img/lot-5.jpg"],
+            ["Name" => "Маска Oakley Canopy", "Category" => $category_ru[5], "Price" => 5400, "URl" =>"img/lot-6.jpg"],
+]
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,8 +36,29 @@ $user_name = ''; // укажите здесь ваше имя
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
+            <?php
+            if($is_auth == 1)
+            {
+                echo    "<div class='user-menu__image'>
+                            <img src='img/user.jpg' width='40' height='40' alt='Пользователь'>
+                           </div>
+                    <div class='user-menu__logged'>
+                        <p>$user_name</p>
+                        </div>";
+            }
 
-        <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
+            else{
+                echo        " <ul class= 'user-menu__list'>
+                            <li class='user-menu__item'>
+                    <a href=''>Регистрация</a>
+                        </li>
+                <li class='user-menu__item'>
+                <a href=''>Вход</a>
+                    </li>
+                        </ul>";
+            }
+
+            ?>
 
         </nav>
     </div>
@@ -38,8 +68,7 @@ $user_name = ''; // укажите здесь ваше имя
     <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
-        <ul class="promo__list">
-            <!--заполните этот список из массива категорий-->
+        <ul class="promo__list"
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
             </li>
@@ -50,25 +79,38 @@ $user_name = ''; // укажите здесь ваше имя
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <!--заполните этот список из массива с товарами-->
-            <li class="lots__item lot">
-                <div class="lot__image">
-                    <img src="" width="350" height="260" alt="">
-                </div>
-                <div class="lot__info">
-                    <span class="lot__category">Название категории</span>
-                    <h3 class="lot__title"><a class="text-link" href="pages/lot.html">Название товара</a></h3>
-                    <div class="lot__state">
-                        <div class="lot__rate">
-                            <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">цена<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer">
-                            12:23
-                        </div>
-                    </div>
-                </div>
-            </li>
+            <?php
+            function price ($price) {
+                $price =ceil($price);
+                if ($price >= 1000){
+                    $result = number_format($price,0,'','');
+                }
+                else $result = $price;
+                return $result + '';
+            }
+            foreach ($adv_info as $adv) {
+
+                <
+                li class="lots__item lot" >
+                <div class="lot__image" >
+                    <img src = "" width = "350" height = "260" alt = "" >
+                </div >
+                <div class="lot__info" >
+                    <span class="lot__category" > Название категории </span >
+                    <h3 class="lot__title" ><a class="text-link" href = "pages/lot.html" > Название товара </a ></h3 >
+                    <div class="lot__state" >
+                        <div class="lot__rate" >
+                            <span class="lot__amount" > Стартовая цена </span >
+                            <span class="lot__cost" > цена<b class="rub" > р</b ></span >
+                        </div >
+                        <div class="lot__timer timer" >
+                12:23
+                </div >
+                    </div >
+                </div >
+            </li >
+            }
+            ?>
         </ul>
     </section>
 </main>
