@@ -2,7 +2,7 @@
 $is_auth = rand(0, 1);
 $user_name = ' Саня)'; // укажите здесь ваше имя
 $category_ru = array('Доски и лыжи', 'Крепления', 'Ботинки','Одежда','Инструменты','Разное');
-$category_eng = array('Boards and skis', 'Attachment', 'Boots', 'Clothes', 'Tools', 'Others');
+$category_eng = array('boards', 'attachment', 'boots', 'clothing', 'tools', 'other');
 $adv_info = [
             ["Name" => "2014 Rossignol District Snowboard", "Category" => $category_ru[0], "Price" => 10999, "URl" =>"img/lot-1.jpg"],
             ["Name" => "DC Ply Mens 2016/2017 Snowboard", "Category" => $category_ru[0], "Price" => 159999, "URl" =>"img/lot-2.jpg"],
@@ -10,7 +10,16 @@ $adv_info = [
             ["Name" => "Ботинки для сноуборда DC Mutiny Charocal", "Category" => $category_ru[2], "Price" => 10999, "URl" =>"img/lot-4.jpg"],
             ["Name" => "Куртка для сноуборда DC Mutiny Charocal", "Category" => $category_ru[3], "Price" => 7500, "URl" =>"img/lot-5.jpg"],
             ["Name" => "Маска Oakley Canopy", "Category" => $category_ru[5], "Price" => 5400, "URl" =>"img/lot-6.jpg"],
-]
+];
+function interval (){
+    $date_now = strtotime("now");
+    $date_of_end = strtotime("today +1 day - 1 second - 3 hours");
+    $interval = $date_of_end-$date_now;
+    $date_format = date('H:i', $interval);
+    $result = $date_format;
+    return $result;
+}
+$user_name = 'Sanya)';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -68,10 +77,17 @@ $adv_info = [
     <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
-        <ul class="promo__list"
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
-            </li>
+        <ul class="promo__list">
+
+
+                <?php
+            for ($i = 0; $i<count($category_ru); $i++)
+            {
+                echo "<li class='promo__item promo__item--$category_eng[$i]'>
+                <a class='promo__link' href='pages/all-lots.html'>$category_ru[$i]</a>
+                 </li>";
+            }
+           ?>
         </ul>
     </section>
     <section class="lots">
@@ -104,7 +120,7 @@ $adv_info = [
                             <span class='lot__cost' >" .price($adv['Price'])."</span >
                         </div >
                         <div class='lot__timer timer' >
-                12:23
+                 ". interval() ."
                 </div >
                     </div >
                 </div >
