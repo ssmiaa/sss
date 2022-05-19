@@ -1,6 +1,6 @@
 <?php
 $is_auth = rand(0, 1);
-$user_name = 'Kirill'; // укажите здесь ваше имя
+$user_name = 'Sanya'; // укажите здесь ваше имя
 
 $category_ru = array('Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'); // Массив с категориями на русском
 $category_eng = array('boards', 'attachment', 'boots', 'clothing', 'tools','other'); // Массив с категориями на английском
