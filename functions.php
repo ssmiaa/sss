@@ -2,17 +2,17 @@
 $is_auth = rand(0, 1);
 $user_name = 'Sanya'; // укажите здесь ваше имя
 
-$category_ru = array('Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'); // Массив с категориями на русском
+/*$category_ru = array('Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'); // Массив с категориями на русском*/
 $category_eng = array('boards', 'attachment', 'boots', 'clothing', 'tools','other'); // Массив с категориями на английском
 
-$adv_info = [
+/*$adv_info = [
     ["Name"=>'2014 Rossignol District Snowboard',"Category"=>$category_ru[0], "Price"=>10999, "URL"=>'img/lot-1.jpg'],
     ["Name"=>'DC Ply Mens 2016/2017 Snowboard',"Category"=>$category_ru[0], "Price"=>159999, "URL"=>'img/lot-2.jpg'],
     ["Name"=>'Крепления Union Contact Pro 2015 года размер L/XL',"Category"=>$category_ru[1], "Price"=>8000, "URL"=>'img/lot-3.jpg'],
     ["Name"=>'Ботинки для сноуборда DC Mutiny Charocal',"Category"=>$category_ru[2], "Price"=>10999, "URL"=>'img/lot-4.jpg'],
     ["Name"=>'Куртка для сноуборда DC Mutiny Charocal',"Category"=>$category_ru[3], "Price"=>7500, "URL"=>'img/lot-5.jpg'],
     ["Name"=>'Маска Oakley Canopy',"Category"=>$category_ru[5], "Price"=>5400, "URL"=>'img/lot-6.jpg']
-];
+];*/
 
 
 
