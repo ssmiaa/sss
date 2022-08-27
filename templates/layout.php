@@ -47,7 +47,7 @@
             </nav>
         </div>
     </header>
-    <main class="container">
+    <main class="container" >
         <?=$page_content?>
     </main>
 </div>
@@ -111,6 +111,4 @@
 <script src="script.js"></script>
 </body>
 </html>
-<script>
 
-</script>
