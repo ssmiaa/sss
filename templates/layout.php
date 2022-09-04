@@ -21,16 +21,17 @@
                 <input class="main-header__search-btn" type="submit" name="find" value="Найти">
             </form>
             <a class="main-header__add-lot button" href="../add.php">Добавить лот</a>
-            
+
             <nav class="user-menu">
                 <?php
-                if ($is_auth==1)
+                if (!empty($user_id))
                 {
                     echo "<div class='user-menu__image'>
                        <img src='img/user.jpg' width='40' height='40' alt='Пользователь'>
                       </div>
                       <div class='user-menu__logged'>
                         <p>$user_name</p>
+                        <a href='logout.php'>Выйти</a>
                       </div>";
                 }
                 else
@@ -40,7 +41,7 @@
                            <a href=''>Регистрация</a>
                             </li>
                             <li class='user-menu__item'>
-                                <a href=''>Вход</a>
+                                <a href=''>'login.php'</a>
                             </li>
                             </ul>";
                 }
