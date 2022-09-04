@@ -25,7 +25,6 @@ if (is_numeric($_GET['page'])) {
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => $adv['lot'],
-                'user_name' => $user_name,
                 'user_id'=>$user_id
             ]);
 
@@ -36,7 +35,6 @@ if (is_numeric($_GET['page'])) {
                 'category_ru' => $category_ru,
                 'category_eng' => $category_eng,
                 'title' => 'Главная страница',
-                'user_name' => $user_name;
         ])}
     } else {
         $page_content = include_template('404.php', []);
@@ -44,8 +42,7 @@ if (is_numeric($_GET['page'])) {
             'page_content' => $page_content,
             'category_ru' => $category_ru,
             'category_eng' => $category_eng,
-            'title' => 'Главная страница',
-            'user_name' => $user_name]);
+            'title' => 'Главная страница']);
     }
 
 print($layout_content);

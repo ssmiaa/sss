@@ -27,10 +27,10 @@
                 if (!empty($user_id))
                 {
                     echo "<div class='user-menu__image'>
-                       <img src='img/user.jpg' width='40' height='40' alt='Пользователь'>
+                       <img src='img/$user[avatar]' width='40' height='40' alt='Пользователь'>
                       </div>
                       <div class='user-menu__logged'>
-                        <p>$user_name</p>
+                        <p>$user_[name]</p>
                         <a href='logout.php'>Выйти</a>
                       </div>";
                 }
@@ -41,7 +41,7 @@
                            <a href=''>Регистрация</a>
                             </li>
                             <li class='user-menu__item'>
-                                <a href=''>'login.php'</a>
+                                <a href='signup.php'>'login.php'</a>
                             </li>
                             </ul>";
                 }
