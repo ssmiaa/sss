@@ -1,10 +1,10 @@
 insert INTO category(name) VALUES ('Доски и лыжи'),('Крепления'),('Ботинки'),('Одежда'),('Инструменты'),('Разное'); /*Запрос на добавление категории*/
-insert into bet(date, amount, id_user,id_lot) values ('2022-05-20 12:00:00.000000', 5000, 1, 1), ('2022-05-20 12:00:00.000000', 10000, 2, 2);
-insert into user(registration_date, email, name, password, avatar, contact) values ('2022-05-20 12:00:00.000000', 'test1@mail.ru', 'Artem', '12345', 'img.jpeg', '+79254785252'),
-                                                                              ('2022-05-20 12:00:00.000000', 'test2@mail.ru', 'Sanya', '12345', 'img.jpeg', '+79277884742');
-insert into lot(id_user, id_category,id_winner, create_date, name, description, image, start_price, end_date, step) values (1, 1, null, '2022-05-17 10:20:00.000000', 'Хороший товар',
+insert into bet(date, amount, id_user,id_lot) values (CURRENT_DATE, 5000, 1, 1), (CURRENT_DATE, 10000, 2, 2);
+insert into user(registration_date, email, name, password, avatar, contact) values (CURRENT_DATE, 'test1@mail.ru', 'Artem', '12345', 'img.jpeg', '+79254785252'),
+                                                                              (CURRENT_DATE, 'test2@mail.ru', 'Sanya', '12345', 'img.jpeg', '+79277884742');
+insert into lot(id_user, id_category,id_winner, create_date, name, description, image, start_price, end_date, step) values (1, 1, null, CURRENT_DATE, 'Хороший товар',
                                                                                                                            'Подойдет', 'image,jpeg', 10000, '2022-05-20 23:59:59.000000', 1000),
-                                                                                                                           (1, 1, null, '2022-05-17 10:20:00.000000', 'Плохой товар',
+                                                                                                                           (1, 1, null, CURRENT_DATE, 'Плохой товар',
                                                                                                                             'Неподойдет', 'image,jpeg', 1000, '2022-05-20 23:59:59.000000', 100);
 select * from category;
 select lot.name, start_price, image, bet.amount as 'Последня ставка', count(bet.id_lot) as 'Количество ставок', category.name from lot inner join bet on bet.id_lot = lot.id_lot inner join category on
